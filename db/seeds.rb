@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+50.times do
+  title = Faker::Book.title
+  author = Faker::Book.author
+  condition = ["Как новая", "Удовлетворительно", "Повидавшая жизнь"].sample
+  description = Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 4)
+  Book.create title: title, author: author, description: description, condition: condition
+end
