@@ -2,7 +2,9 @@
     <div class="col-3 col-sm-2">
     </div>
 
-    <div class="col-12 col-sm-8">   
+    <div class="col-12 col-sm-8">
+
+      <%= render 'shared/errors', object: @book %>   
      
       <%= form_with model: @book do |f|%>
 
@@ -22,8 +24,14 @@
       </div>
 
       <div class="mb-2">      
-          <%= f.label :condition, "Состояние книги", class: "form-label" %>
-          <%= f.select :condition, ["Как новая", "Удовлетворительно", "Повидавшая жизнь"], { label: "Выбери состояние книги:",
+          <%= f.label :condition_book, "Состояние книги", class: "form-label" %>
+          <%= f.select :condition_book, ["Как новая", "Удовлетворительно", "Повидавшая жизнь"], { label: "Выбери состояние книги:",
+           wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+      </div>
+
+      <div class="mb-2">      
+          <%= f.label :status_book, "Статус книги", class: "form-label" %>
+          <%= f.select :status_book, [["Свободна", 1], ["Забронированна", 2],["Читается", 3]], { label: "Изменить статус книги:",
            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
       </div>
 

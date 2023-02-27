@@ -7,10 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-50.times do
+20.times do
   title = Faker::Book.title
   author = Faker::Book.author
-  condition = ["Как новая", "Удовлетворительно", "Повидавшая жизнь"].sample
+  condition_book = rand(1..3)
+  status_book = rand(1..3)
   description = Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 4)
-  Book.create title: title, author: author, description: description, condition: condition
+  Book.create title: title, author: author, description: description, condition_book: condition_book, status_book: status_book
 end

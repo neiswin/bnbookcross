@@ -1,3 +1,5 @@
+<% provide :page_title, "Все книги" %>
+
 <h1 class="text-center display-4">Все книги</h1>
 
   <%== pagy_bootstrap_nav(@pagy) %>
@@ -9,15 +11,15 @@
       </div>
       <div class="card-body">
         <p class="card-text">Автор: <%= book.author %></p>
-        <p class="card-text">Стояние: <%= book.condition %></p>
+        <p class="card-text">Состояние: <%= book.condtition_book_text %></p>
         <p class="card-text">Описание: <%= book.description %></p>
       </div>
       <div class="card-footer text-muted">
 
       <div class="row justify-content-center align-items-center g-2">
-        <div class="col"><p class="card-text">Добавлена: <%= book.created_at %></p></div>
-        <div class="col">Place:</div>
-        <div class="col">Status:</div>
+        <div class="col"><p class="card-text">Добавлена: <%= book.formatted_created_at %></p></div>
+        <div class="col">Место:</div>
+        <div class="col">Статус: <%= book.status_book_text %></div>
         <div class="col text-end">
           <div class="btn-group" role="group" aria-label="Basic example">
             <%= link_to 'Показать', book_path(book), method: :get, class: "btn btn-success"  %>

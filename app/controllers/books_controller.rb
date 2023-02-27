@@ -26,7 +26,8 @@ class BooksController < ApplicationController
   end
   
   def index
-    @pagy, @books = pagy(Book.all)
+    @pagy, @books = pagy Book.order(created_at: :desc) 
+    @books = @books.decorate
   end
 
   def show
@@ -45,7 +46,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :condition, :description)
+    params.require(:book).permit(:title, :author, :condition_book, :description, :status_book)
   end
 
   def set_book!
