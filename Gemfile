@@ -49,6 +49,9 @@ gem 'pagy', "~> 6.0.2"
 
 gem 'draper', "~> 4.0.2"
 
+gem 'devise', "~> 4.9.0"
+
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

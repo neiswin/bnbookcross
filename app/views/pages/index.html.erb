@@ -1,4 +1,12 @@
 <% provide :page_title, "Главная" %>
 
 <h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<% if user_signed_in? %>
+<p lead></p>
+
+<p class="lead">
+    <%= current_user.first_name %>
+    <%= current_user.last_name %>
+</p>
+  
+<% end %>
