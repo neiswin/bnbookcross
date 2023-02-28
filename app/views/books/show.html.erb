@@ -15,7 +15,7 @@
     
       <div class="row justify-content-center align-items-center g-2">
         <div class="col"><p class="card-text">Добавлена: <%= @book.created_at %></p></div>
-        <div class="col"></div>
+        <div class="col"><p class="card-text">Владелец: <%= @book.user.nickname %> </p></div>
         <div class="col text-end">
           <div class="btn-group" role="group" aria-label="Basic example">
             <%= link_to 'Изменить', edit_book_path(@book), method: :get, class: "btn btn-warning" %>
