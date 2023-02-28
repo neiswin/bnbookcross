@@ -1,0 +1,44 @@
+<% provide :page_title, "Страница профиля" %>
+
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"><%= @user.nickname %></span><span class="text-black-50"><%= @user.email %></span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right display-7">Страница профиля</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">Имя: <%= @user.first_name %></div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6">Фамилия: <%= @user.last_name %></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-12 mb-3">Номер телефона:</div>
+                    <div class="col-md-12 mb-3">Рейтинг:</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-3">
+                <div class="d-flex justify-content-between align-items-center experience"><h4 class="text-right display-7">Книги пользователя</h4></div><br>
+                
+                  <% @user.books.each do |book| %>
+                  <div class="col-md-12"><%= link_to "#{book.title}", book_path(book.id), method: :get %>  </div> <br>
+                
+                <div class="col-md-12"><%= book.id%> </div> <br>
+                <% end %>
+                 </div><br>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

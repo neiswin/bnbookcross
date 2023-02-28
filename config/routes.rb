@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'pages/index'
+  resources :users, only: %i[index show]
+
 
   resources :books
 

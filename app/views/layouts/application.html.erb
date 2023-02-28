@@ -12,9 +12,15 @@
 
   <body>
     
-    <%= render 'shared/menu' %>
     
-    <div class="container">
+    <div class="container-sm">
+      <%= render 'shared/menu' %>   
+
+          <% flash.each do |key , value| %>
+            <%= tag.div value, class: "alert alert-success #{key}", role: 'alert' %>
+          <% end %>
+
+
       <%= yield %>
     </div>
   
