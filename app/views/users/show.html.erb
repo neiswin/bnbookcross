@@ -29,12 +29,12 @@
             <div class="p-3 py-3">
                 <div class="d-flex justify-content-between align-items-center experience"><h4 class="text-right display-7">Книги пользователя</h4></div><br>
                 
-                  <% @user.books.each do |book| %>
+                <% @user.books.each do |book| %>             
                   <div class="col-md-12"><%= link_to "#{book.title}", book_path(book.id), method: :get %>  </div> <br>
-                
-                <div class="col-md-12"><%= book.id%> </div> <br>
                 <% end %>
-                 </div><br>
+
+                 </div>
+                 <br>
 
             </div>
         </div>
