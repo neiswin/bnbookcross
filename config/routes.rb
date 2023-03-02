@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :books, only: %i[show]
   end
 
+  resources :places, only: %i[index show]
+
 
   resources :books
   # Defines the root path route ("/")

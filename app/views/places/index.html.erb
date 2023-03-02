@@ -1,0 +1,8 @@
+<h1 class="display-1 text-center">Все полки</h1>
+
+
+<% @places.each do |place| %>
+  <p class="lead">
+      <%= link_to "#{place.place_name}", place_path(place.id), method: :get %>
+  </p>
+<% end %>

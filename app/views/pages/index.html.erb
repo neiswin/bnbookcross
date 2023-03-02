@@ -7,6 +7,9 @@
 <p class="lead">
     <%= current_user.first_name %>
     <%= current_user.last_name %>
+    <i class="bi-alarm" style="font-size: 2rem; color: cornflowerblue;"></i>
+
+    <%= link_to (bootstrap_icon "1-circle", color: "cornflowerblue",size: "2rem", class: "bi bi-1-circle"), books_path %>
 </p>
   
 <% end %>

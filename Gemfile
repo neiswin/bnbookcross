@@ -51,6 +51,12 @@ gem 'draper', "~> 4.0.2"
 
 gem 'devise', "~> 4.9.0"
 
+gem 'bootstrap-icons', "~> 1.0.13"
+
+gem 'bootstrap-icons-helper'
+
+
+
 
 # Use Sass to process CSS
 # gem "sassc-rails"
