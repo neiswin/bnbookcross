@@ -55,6 +55,8 @@ gem 'bootstrap-icons', "~> 1.0.13"
 
 gem 'bootstrap-icons-helper'
 
+gem 'ransack'
+
 
 
 

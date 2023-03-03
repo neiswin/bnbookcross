@@ -34,7 +34,9 @@ class BooksController < ApplicationController
   
   def index
     @pagy, @books = pagy Book.order(created_at: :desc) 
-    @books = @books.decorate
+    # @books = @books.decorate
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct: true).decorate
   end
 
   def show
