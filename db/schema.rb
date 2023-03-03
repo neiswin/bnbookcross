@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_120720) do
     t.integer "status_book", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.integer "place_id"
     t.index ["place_id"], name: "index_books_on_place_id"
     t.index ["user_id"], name: "index_books_on_user_id"

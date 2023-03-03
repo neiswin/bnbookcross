@@ -32,6 +32,18 @@ class BookDecorator < ApplicationDecorator
     else
       return "Неизвестно"
     end
+  end
+
+  def place_book_name
+    case place_id
+    when 1
+      return "Проходная АПК"
+    when 2
+      return "Проходная КИПиА"
+    else
+      return "Неизвестно"
+    end
+
     
   end
 

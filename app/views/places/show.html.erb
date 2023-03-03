@@ -3,4 +3,10 @@
 
 <p class="lead">
     <%= @place.place_name %>
+
+    <% @books.each do |book| %>
+        <p class="lead">
+            <%= link_to "#{book.title}", book_path(book.id) %>
+        </p>
+    <% end %>
 </p>

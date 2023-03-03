@@ -1,13 +1,20 @@
 class BooksController < ApplicationController
 
   before_action :set_book!, only: %i[destroy edit show update]
+  before_action :fetch_places, only: %i[create edit new]
   
   def new
     @book = Book.new
   end
 
   def create
-    @book = current_user.books.build book_params
+    
+    if user_signed_in?
+      @book = current_user.books.build book_params
+    else
+      @book = Book.new book_params
+    end
+
     if @book.save
       flash[:success] = 'Book added!'
       redirect_to books_path
@@ -46,10 +53,14 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :condition_book, :description, :status_book)
+    params.require(:book).permit(:title, :author, :condition_book, :description, :status_book, :place_id)
   end
 
   def set_book!
     @book = Book.find params[:id]
+  end
+
+  def fetch_places
+    @places = Place.order(:name).map { |place| [place.place_name, place.id] }
   end
 end

@@ -35,6 +35,17 @@
            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
       </div>
 
+
+      <div class="mb-2">      
+
+          <%= f.label :place_id, "Место хранения книги", class: "form-label" %>
+          <%= f.select :place_id, places, { 
+           wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+      
+
+
+      </div>
+
       <div class="mb-2">
         <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
       </div>
