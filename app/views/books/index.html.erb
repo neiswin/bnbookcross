@@ -2,6 +2,8 @@
 
 <h1 class="text-center display-4">Все книги</h1>
 
+<%= render 'filter' %>
+
   <%== pagy_bootstrap_nav(@pagy) %>
 
 <% @books.each do |book| %>
