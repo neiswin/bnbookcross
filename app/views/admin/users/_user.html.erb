@@ -1,0 +1,12 @@
+<tr>
+  <th scope="row"><%= user.id %></th>
+  <td><%= user.nickname %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role %></td>
+  <td><%= user.created_at %></td>
+  <td>
+  <%= link_to 'Редактировать', edit_admin_user_path(user), class: "btn btn-sm btn-secondary" %>
+  <%= link_to 'Удалить', admin_user_path(user), 'data-turbo-method': :delete, class: "btn btn-sm btn-danger" %>
+  
+  </td>
+</tr>
