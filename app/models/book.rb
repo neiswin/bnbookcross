@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  include Authorship
+  
   belongs_to :user, optional: true
   belongs_to :place, optional: true
 

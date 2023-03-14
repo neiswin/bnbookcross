@@ -25,8 +25,12 @@
         <div class="col-sm">
           <div class="btn-group" role="group" aria-label="Basic example">
             <%= link_to 'Показать', book_path(book), method: :get, class: "btn btn-success"  %>
-            <%= link_to 'Изменить', edit_book_path(book), method: :get, class: "btn btn-warning" %>
-            <%= link_to "Удалить", book_path(book),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>
+            <% if policy(book).edit? %>
+              <%= link_to 'Изменить', edit_book_path(book), method: :get, class: "btn btn-warning" %>
+            <% end %>
+            <% if policy(book).destroy? %>
+              <%= link_to "Удалить", book_path(book),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>
+            <% end %>
           </div>
         </div>
       </div>

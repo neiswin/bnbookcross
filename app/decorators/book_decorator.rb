@@ -26,7 +26,7 @@ class BookDecorator < ApplicationDecorator
     when 1
       return "Как новая"
     when 2
-      return "УДовлитворительно"
+      return "Удовлитворительно"
     when 3
       return "Повидавшая жизнь"
     else

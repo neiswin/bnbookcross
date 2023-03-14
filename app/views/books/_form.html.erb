@@ -25,7 +25,7 @@
 
       <div class="mb-2">      
           <%= f.label :condition_book, "Состояние книги", class: "form-label" %>
-          <%= f.select :condition_book, ["Как новая", "Удовлетворительно", "Повидавшая жизнь"], { label: "Выбери состояние книги:",
+          <%= f.select :condition_book, [["Как новая", 1], ["Удовлетворительно", 2], ["Повидавшая жизнь", 3]], { label: "Выбери состояние книги:",
            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
       </div>
 

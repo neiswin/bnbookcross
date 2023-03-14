@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   include ErrorHandling
+  # include Pundit::Authorization
+  include Authorization
 
 
   protected

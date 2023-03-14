@@ -57,6 +57,7 @@ gem 'bootstrap-icons-helper'
 
 gem 'ransack'
 
+gem "pundit", "~> 2.3"
 
 
 
@@ -89,3 +90,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
