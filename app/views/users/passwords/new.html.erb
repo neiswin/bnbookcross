@@ -1,16 +1,45 @@
-<h2>Forgot your password?</h2>
+<% provide :page_title, "Сброс пароля" %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<h1 class="text-center">Забыли свой пароль?</h1>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+<div class="row">
+
+    <div class="col-3 col-sm-2">
+    </div>
+
+    <div class="col-12 col-sm-8">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="mb-3">
+        <div class="form-label">
+        <%= f.label :email, class: 'form-label'%>
+        </div>
+        
+        <%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.submit "Отправить инструкции по сбросу пароля", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= link_to 'Назад', user_session_path  %>
+      </div>
+
+      <div class="mb-3">
+        <%= render "users/shared/links" %>
+      </div>
+
+    </div>
+  
+    <div class="col-3 col-sm-2">
+    </div>
+
+</div>
+
+
+

@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+  
   # GET /resource/password/new
   # def new
   #   super
   # end
 
-  # POST /resource/password
+  # # POST /resource/password
   # def create
   #   super
   # end
@@ -19,7 +20,7 @@ class Users::PasswordsController < Devise::PasswordsController
   # PUT /resource/password
   # def update
   #   super
-  # end
+  # # end
 
   # protected
 
@@ -27,7 +28,7 @@ class Users::PasswordsController < Devise::PasswordsController
   #   super(resource)
   # end
 
-  # The path used after sending reset password instructions
+  # # The path used after sending reset password instructions
   # def after_sending_reset_password_instructions_path_for(resource_name)
   #   super(resource_name)
   # end
