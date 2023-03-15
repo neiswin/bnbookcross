@@ -3,6 +3,7 @@ class Book < ApplicationRecord
   
   belongs_to :user, optional: true
   belongs_to :place, optional: true
+  has_many :bookcrossing, dependent: :destroy
 
   validates :title, presence: true, length: { minimum: 2 }
   validates :author, presence: true, length: { minimum: 2 }

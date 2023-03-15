@@ -22,6 +22,12 @@
         <div class="col-sm"><p class="card-text">Добавлена: <%= book.formatted_created_at %></p></div>
         <div class="col-sm">Место: <%= book.place_book_name %></div>
         <div class="col-sm">Статус: <%= book.status_book_text %></div>
+        <div class="col-sm">      
+        <% if policy(:book).new? %>
+          <%= link_to 'Забуккроссить', new_bookcrossing_path, class: "nav-link px-2 link-dark"   %>
+        <% end %>
+        
+        </div>
         <div class="col-sm">
           <div class="btn-group" role="group" aria-label="Basic example">
             <%= link_to 'Показать', book_path(book), method: :get, class: "btn btn-success"  %>

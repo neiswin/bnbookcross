@@ -59,6 +59,9 @@ gem 'ransack'
 
 gem "pundit", "~> 2.3"
 
+gem "sidekiq", "~> 7.0"
+
+
 
 
 # Use Sass to process CSS

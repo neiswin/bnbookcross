@@ -26,6 +26,8 @@
             <% if policy(@book).destroy? %>
               <%= link_to "Удалить", book_path(@book),  'data-turbo-method': :delete,  data: { confirm: 'Are you sure?'}, class: "btn btn-danger"  %>  
             <% end %>
+
+            
           </div>
         </div>
       </div>

@@ -1,0 +1,55 @@
+<% provide :page_title, "буккроссинг" %>
+
+<h1 class="text-center display-4">Регистрация буккроссинга</h1>
+
+
+  <div class="row">
+    <div class="col-3 col-sm-2">
+    </div>
+
+    <div class="col-12 col-sm-8">
+    <p class="lead">
+        Для начала, добавьте книгу или выберите из уже добавленных
+    </p>
+
+    <%= form_with model: @bookcrossing do |f| %>
+
+
+      <div class="mb-2">      
+          <%= f.label :type_bookcrossing, "Тип буккроссинга", class: "form-label" %>
+          <%= f.text_field :type_bookcrossing, class: "form-control" %>
+      </div>
+
+      <div class="mb-2">      
+
+          <%= f.label :place_id, "Место хранения книги", class: "form-label" %>
+          <%= f.select :place_id, @places, { 
+           wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+      
+      </div>
+      <div class="mb-2">      
+
+          <%= f.label :book_id, "Выберите свою книгу, которую хотите отдать", class: "form-label" %>
+          <%= f.select :book_id, @books, { 
+           wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+      
+      </div>
+
+      <div class="mb-2">
+        <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
+      </div>
+
+
+
+
+    <% end %>
+
+    </div>
+
+  <div class="col-3 col-sm-2">
+          <% @user.books.each do |book| %>             
+                  <div class="col-md-12"><%= link_to "#{book.title}", book_path(book.id), method: :get %>  </div> <br>
+      <% end %>
+  </div>
+</div>
+

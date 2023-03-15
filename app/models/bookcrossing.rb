@@ -1,0 +1,2 @@
+class Bookcrossing < ApplicationRecord
+end
