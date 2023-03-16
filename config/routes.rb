@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   resources :places, only: %i[index show]
 
 
-  resources :books
+  resources :books do
+    resources :bookcrossings, only: %i[new edit]
+  end
   
   resources :bookcrossings
 
@@ -37,6 +39,6 @@ Rails.application.routes.draw do
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
-  
+  mount ActionCable.server => '/cable'
 
 end

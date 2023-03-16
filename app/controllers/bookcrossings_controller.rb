@@ -3,8 +3,14 @@ class BookcrossingsController < ApplicationController
   
   def new
     @user = User.find (current_user.id)
+
+    @book = Book.find(params[:book_id]).decorate
+    
     @books = @user.books.map { |book| [book.title, book.id] }
-    @places = Place.order(:name).map { |place| [place.place_name, place.id] }
+    
+    @place = @book.place_id
+    
+    
     @bookcrossing = Bookcrossing.new
   end
 

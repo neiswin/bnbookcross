@@ -24,7 +24,7 @@
         <div class="col-sm">Статус: <%= book.status_book_text %></div>
         <div class="col-sm">      
         <% if policy(:book).new? %>
-          <%= link_to 'Забуккроссить', new_bookcrossing_path, class: "nav-link px-2 link-dark"   %>
+          <%= link_to 'Забуккроссить', new_book_bookcrossing_path(book), class: "nav-link px-2 link-dark"   %>
         <% end %>
         
         </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_111947) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_111259) do
   create_table "bookcrossings", force: :cascade do |t|
     t.string "type_bookcrossing"
     t.integer "book_id"
@@ -38,6 +38,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_111947) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "item_type"
+    t.integer "item_id"
+    t.boolean "viewed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_type", "item_id"], name: "index_notifications_on_item"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "place_name"
     t.datetime "created_at", null: false
@@ -63,4 +74,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_14_111947) do
 
   add_foreign_key "books", "places"
   add_foreign_key "books", "users"
+  add_foreign_key "notifications", "users"
 end

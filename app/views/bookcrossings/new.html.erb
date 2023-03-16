@@ -12,44 +12,42 @@
         Для начала, добавьте книгу или выберите из уже добавленных
     </p>
 
+    <div class="mb-2">
+      <%= link_to 'Добавить книгу', new_book_path, class: "btn btn-primary"   %>
+    </div>
+
     <%= form_with model: @bookcrossing do |f| %>
 
-
       <div class="mb-2">      
-          <%= f.label :type_bookcrossing, "Тип буккроссинга", class: "form-label" %>
-          <%= f.text_field :type_bookcrossing, class: "form-control" %>
-      </div>
-
-      <div class="mb-2">      
-
-          <%= f.label :place_id, "Место хранения книги", class: "form-label" %>
-          <%= f.select :place_id, @places, { 
-           wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
-      
-      </div>
-      <div class="mb-2">      
-
           <%= f.label :book_id, "Выберите свою книгу, которую хотите отдать", class: "form-label" %>
           <%= f.select :book_id, @books, { 
            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
-      
       </div>
 
-      <div class="mb-2">
+      <div class="mb-1">
+        <p class="lead">
+            Книга, которую Вы хотите взять:
+        </p>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Название книги: <%= @book.title %></h5>
+          <h6 class="card-text">Автор: <%= @book.author %></h6>
+          <p class="card-text">Состояние книги: <%= @book.condtition_book_text %></p>
+          <p class="card-text">Описание: <%= sanitize @book.description %></p>
+          <p class="card-text">Место хранения: <%= @book.place.place_name %> </p>
+          <p class="card-subtitle mb-2 text-muted">Добавлена: <%= @book.formatted_created_at %></p>
+        </div>
+      </div>
+    </div>
+          <div class="mb-2">
         <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
       </div>
-
-
-
-
     <% end %>
-
-    </div>
+      </div>
 
   <div class="col-3 col-sm-2">
-          <% @user.books.each do |book| %>             
-                  <div class="col-md-12"><%= link_to "#{book.title}", book_path(book.id), method: :get %>  </div> <br>
-      <% end %>
+
   </div>
 </div>
 
