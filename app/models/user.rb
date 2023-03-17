@@ -4,7 +4,7 @@ class User < ApplicationRecord
   enum role: { basic: 0, moderator: 1, admin: 2 }, _suffix: :role
 
   has_many :books, dependent: :destroy
-  has_many :bookcrossing, dependent: :destroy
+  has_many :interactions, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -1,5 +1,6 @@
 class InteractionsController < ApplicationController
   before_action :set_interaction!, only: %i[destroy edit show update]
+  before_action :fetch_places, only: %i[create edit new]
 
   def index
     @interactions = Interaction.all
@@ -33,6 +34,10 @@ class InteractionsController < ApplicationController
 
   def set_interaction!
     @interaction = Interaction.find params[:id]
+  end
+
+  def fetch_places
+    @places = Place.order(:name).map { |place| [place.place_name, place.id] }
   end
 
   def interaction_donate_params

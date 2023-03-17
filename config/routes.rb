@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index show edit update]  do
     resources :books, only: %i[show]
-    resources :bookcrossings, only: %i[new show]
+    resources :interactions, only: %i[index new show edit update]
   end
 
   resources :places, only: %i[index show]

@@ -13,6 +13,10 @@
           На этой странице вы можете оставить заявку и отдать книгу нашему модератору
       </p>
 
+      <p class=" ">
+          Оставьте свои контактные данные, чтобы наш модератор смог с Вами связаться
+      </p>
+
 
       <%= render 'shared/errors', object: @interaction %>   
      
@@ -41,6 +45,18 @@
           Введите номер в формате +375 xx xxx xx xx .Мы никому не передадим Ваши личные данные!
         </p>
       </div>
+
+      <div class="mb-2">
+        <div class="form-floating ">
+          <%= f.select :place_id, @places, { label: "Выбери состояние книги:",
+           wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+          <%= f.label :place_id, 'Место хранения книги' %>
+        </div>  
+        <p class="form-text text-muted">
+          Выберите место хранения книги, чтобы нужный модератор связался с Вами.
+        </p>        
+      </div>
+
 
       <div class="mb-2">
         <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
