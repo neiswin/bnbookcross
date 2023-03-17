@@ -3,45 +3,54 @@
     </div>
 
     <div class="col-12 col-sm-8">
-
       <%= render 'shared/errors', object: @book %>   
      
       <%= form_with model: @book do |f|%>
 
       <div class="mb-2">
-          <%= f.label :title, "Название книги", class: "form-label" %>
-          <%= f.text_field :title, placeholder: "Введите название", class:'form-control'  %>
+        <div class="form-floating ">
+          <%= f.text_field :title, placeholder: "Книга", class:'form-control'  %>
+          <%= f.label :title, 'Название книги' %>
+        </div>
       </div>
 
       <div class="mb-2">
-        <%= f.label :author, "Автор книги", class: "form-label" %>
-        <%= f.text_field :author, placeholder: "Введите автора", class:'form-control'  %>
+        <div class="form-floating ">
+          <%= f.text_field :author, placeholder: "Автор", class:'form-control'  %>
+          <%= f.label :author, 'Автор книги' %>
+        </div>
       </div>
       
       <div class="mb-2">
-        <%= f.label :description, "Описание", class: "form-label" %>
-        <%= f.text_area :description, placeholder: "Описание вводить необязательно", class:'form-control'  %>
+        <div class="form-floating ">
+          <%= f.text_area :description, placeholder: "Описание", class:'form-control'  %>
+          <%= f.label :description, 'Описание книги' %>
+        </div>
       </div>
 
-      <div class="mb-2">      
-          <%= f.label :condition_book, "Состояние книги", class: "form-label" %>
+      <div class="mb-2">
+        <div class="form-floating ">
           <%= f.select :condition_book, [["Как новая", 1], ["Удовлетворительно", 2], ["Повидавшая жизнь", 3]], { label: "Выбери состояние книги:",
            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+          <%= f.label :condition_book, 'Состояние книги' %>
+        </div>     
       </div>
 
-      <div class="mb-2">      
-          <%= f.label :status_book, "Статус книги", class: "form-label" %>
+      <div class="mb-2">  
+        <div class="form-floating ">
           <%= f.select :status_book, [["Свободна", 1], ["Забронированна", 2],["Читается", 3]], { label: "Изменить статус книги:",
            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
+          <%= f.label :status_book, 'Статус книги' %>
+        </div>          
       </div>
 
 
-      <div class="mb-2">      
-
-          <%= f.label :place_id, "Место хранения книги", class: "form-label" %>
-          <%= f.select :place_id, places, { 
+      <div class="mb-2">
+        <div class="form-floating ">
+          <%= f.select :place_id, places, { label: "Выбери состояние книги:",
            wrapper: { class: 'has-warning', data: { foo: 'bar' } } }, { class: "form-select" } %>
-      
+          <%= f.label :place_id, 'Место хранения книги' %>
+        </div>          
       </div>
 
 

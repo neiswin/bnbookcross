@@ -19,6 +19,5 @@ class BookPolicy < ApplicationPolicy
   def show?
     true
   end
-
   
 end

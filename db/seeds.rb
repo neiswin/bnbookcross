@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+Place.create place_name: "Проходная 1"
+Place.create place_name: "Проходная 2"
+
 20.times do
   title = Faker::Book.title
   author = Faker::Book.author
@@ -17,3 +20,7 @@
   description = Faker::Lorem.paragraph(sentence_count: 5, supplemental: true, random_sentences_to_add: 4)
   Book.create title: title, author: author, description: description, condition_book: condition_book, status_book: status_book, user_id: user_id, place_id: place_id
 end
+
+
+
+

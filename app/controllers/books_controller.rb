@@ -5,11 +5,10 @@ class BooksController < ApplicationController
   # before_action :authenticate_user!, except: %i[index show]
   before_action :authorize_book!
   after_action :verify_authorized
+  # skip_after_action :verify_authorized, only: %i[donate]
 
-  
-  
+
   def new
-
     @book = Book.new
   end
 
@@ -50,6 +49,7 @@ class BooksController < ApplicationController
 
   def edit
   end
+
 
   def destroy
     @book.destroy

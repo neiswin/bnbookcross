@@ -13,13 +13,16 @@
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
 
-      <div class="mb-3">
-        <div class="form-label">
-        <%= f.label :email, class: 'form-label'%>
+        <div class="mb-3 ">
+          <div class="form-floating  ">
+            <%= f.email_field :email, placeholder: "email", autocomplete: "email", class:'form-control shadow-sm'  %>
+            <%= f.label :email, 'Ваш email' %>
+          </div>
+          <p class="form-text text-muted">
+            Пример: (example@gmail.com)
+          </p>
         </div>
-        
-        <%= f.email_field :email, autofocus: true, required: true, autocomplete: "email", class: "form-control" %>
-      </div>
+
 
       <div class="mb-3">
         <%= f.submit "Отправить инструкции по сбросу пароля", class: "btn btn-primary" %>

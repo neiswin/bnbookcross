@@ -1,0 +1,13 @@
+<h1 class="display-3">page interactions</h1>
+
+
+<% @interactions.each do |inter| %>
+  <div class="my-3">
+       <p class="lead"> <%= inter.book_author %>  </p>
+       <p class="lead"> <%= inter.book_title %>  </p>
+       <p class="lead"> <%= inter.phone_number%>  </p>
+       <p class="lead"> <%= inter.user_id %>  </p>
+      <p class="lead">  <%= inter.book_id %>  </p>
+      <p class="lead">  <%= inter.place_id %>  </p>
+  </div>
+<% end %>

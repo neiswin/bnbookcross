@@ -1,0 +1,33 @@
+ <div class="row">
+    <div class="col-3 col-sm-2">
+    </div>
+
+    <div class="col-12 col-sm-8">
+
+      <%= render 'shared/errors', object: @interaction %>   
+     
+      <%= form_with model: @interaction do |f|%>
+
+      <div class="mb-2">
+        <%= f.text_field :book_title, placeholder: "Введите название книги", class:'form-control'  %>
+      </div>
+
+      <div class="mb-2">
+        <%= f.text_field :book_author, placeholder: "Введите автора", class:'form-control'  %>
+      </div>
+      
+      <div class="mb-2">
+          <%= f.telephone_field :phone_number, placeholder: "Оставьте свой номер телефона", class:'form-control'  %>
+      </div>
+
+      <div class="mb-2">
+        <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
+      </div>
+
+      <% end %>
+
+    </div>
+
+  <div class="col-3 col-sm-2">
+  </div>
+</div>

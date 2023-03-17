@@ -1,25 +1,53 @@
-<h2>Change your password</h2>
+<% provide :page_title, "Сброс пароля" %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+<h1 class="display-5 text-center mb-4">Страница для сброса пароля</h1>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-  </div>
+<div class="row">
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="col-3 col-sm-2">
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+    <div class="col-12 col-sm-8">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
+        <div class="mb-3 ">
+                <div class="form-floating  ">
+                  <%= f.password_field :password, placeholder: "Пароль", autocomplete: "password", class:'form-control shadow-sm'  %>
+                  <%= f.label :password, 'Пароль' %>
+                </div>
+                <% if @minimum_password_length %>
+                  <p class="form-text text-muted">
+                    Придумайте пароль (<%= @minimum_password_length %> символов минимум)
+                  </p>
+                <% end %>
+              </div>
+
+              <div class="mb-3 ">
+                <div class="form-floating  ">
+                  <%= f.password_field :password_confirmation, placeholder: "password", autocomplete: "password", class:'form-control shadow-sm'  %>
+                  <%= f.label :password_confirmation, 'Повторите пароль' %>
+                </div>
+              </div>
+
+        <div class="actions mb-3">
+          <%= f.submit "Изменить мой пароль",  class: "btn btn-primary", data: { turbo:false } %>
+        </div>
+      <% end %>
+
+      <%= render "users/shared/links" %>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="col-3 col-sm-2">
+    </div>
+</div>
+
+

@@ -21,13 +21,17 @@ Rails.application.routes.draw do
   end
 
   resources :places, only: %i[index show]
-
+  
+  resources :interactions 
 
   resources :books do
-    resources :bookcrossings, only: %i[new edit]
+    resources :interactions, only: %i[new edit]
   end
-  
-  resources :bookcrossings
+
+
+  get '/interactions/donate_book', to: "interactions#donate"
+
+
 
   namespace :admin do
     devise_for :users 
@@ -36,6 +40,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
 
   root "pages#index"
+
+ 
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 

@@ -10,24 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_111259) do
-  create_table "bookcrossings", force: :cascade do |t|
-    t.string "type_bookcrossing"
-    t.integer "book_id"
-    t.integer "user_id"
-    t.integer "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_bookcrossings_on_book_id"
-    t.index ["place_id"], name: "index_bookcrossings_on_place_id"
-    t.index ["user_id"], name: "index_bookcrossings_on_user_id"
-  end
-
+ActiveRecord::Schema[7.0].define(version: 2023_03_16_132616) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
     t.text "description"
-    t.integer "counter_how_much_give", default: 0
     t.integer "condition_book", default: 0
     t.integer "status_book", default: 0
     t.datetime "created_at", null: false
@@ -38,15 +25,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_111259) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
-  create_table "notifications", force: :cascade do |t|
+  create_table "interactions", force: :cascade do |t|
     t.integer "user_id"
-    t.string "item_type"
-    t.integer "item_id"
-    t.boolean "viewed", default: false
+    t.integer "book_id"
+    t.integer "place_id"
+    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_type", "item_id"], name: "index_notifications_on_item"
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.string "book_title"
+    t.string "book_author"
+    t.index ["book_id"], name: "index_interactions_on_book_id"
+    t.index ["place_id"], name: "index_interactions_on_place_id"
+    t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -67,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_111259) do
     t.string "first_name"
     t.string "last_name"
     t.integer "role", default: 0, null: false
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role"], name: "index_users_on_role"
@@ -74,5 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_111259) do
 
   add_foreign_key "books", "places"
   add_foreign_key "books", "users"
-  add_foreign_key "notifications", "users"
+  add_foreign_key "interactions", "books"
+  add_foreign_key "interactions", "places"
+  add_foreign_key "interactions", "users"
 end

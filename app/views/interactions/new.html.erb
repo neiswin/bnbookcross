@@ -1,0 +1,55 @@
+<% provide :page_title, "Подарить книгу" %>
+
+
+ <div class="row">
+    <div class="col-3 col-sm-2">
+    </div>
+
+    <div class="col-12 col-sm-8">
+
+      <h1 class="text-center mb-3 display-6">Подарить книгу</h1>
+
+      <p class=" ">
+          На этой странице вы можете оставить заявку и отдать книгу нашему модератору
+      </p>
+
+
+      <%= render 'shared/errors', object: @interaction %>   
+     
+      <%= form_with model: @interaction do |f|%>
+
+      <div class="mb-2">     
+        <div class="form-floating ">
+          <%= f.text_field :book_title, placeholder: "Книга", class:'form-control'  %>
+          <%= f.label :book_title, 'Название книги' %>
+        </div>
+      </div>
+
+      <div class="mb-2">
+        <div class="form-floating ">
+          <%= f.text_field :book_author, placeholder: "Автор", class:'form-control'  %>
+          <%= f.label :book_author, 'Автор книги' %>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <div class="form-floating">
+          <%= f.telephone_field :phone_number, placeholder: "Оставьте свой номер телефона", class:'form-control'  %>
+          <%= f.label :phone_number, 'Номер телефона' %>
+        </div>
+        <p class="form-text text-muted">
+          Введите номер в формате +375 xx xxx xx xx .Мы никому не передадим Ваши личные данные!
+        </p>
+      </div>
+
+      <div class="mb-2">
+        <%= f.submit "Сохранить", class: "btn btn-success w-150 mt-3", data: { turbo:false } %>
+      </div>
+
+      <% end %>
+
+    </div>
+
+  <div class="col-3 col-sm-2">
+  </div>
+</div>
