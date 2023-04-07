@@ -22,15 +22,11 @@ Rails.application.routes.draw do
 
   resources :places, only: %i[index show]
   
-  resources :interactions 
+  resources :interactions, except: %i[index]
 
   resources :books do
     resources :interactions, only: %i[new edit]
   end
-
-
-  get '/interactions/donate_book', to: "interactions#donate"
-
 
 
   namespace :admin do

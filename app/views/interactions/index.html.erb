@@ -1,13 +1,22 @@
-<h1 class="display-3">page interactions</h1>
+<h1 class="display-5">Страница уведомлений</h1>
 
 
-<% @interactions.each do |inter| %>
+<p class="lead">
+    Отправленные заявки
+</p>
+  <% @interactions.each do |inter| %>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Заявка на донат книги </h4>
+
   <div class="my-3">
-       <p class="lead"> <%= inter.book_author %>  </p>
-       <p class="lead"> <%= inter.book_title %>  </p>
-       <p class="lead"> <%= inter.phone_number%>  </p>
-       <p class="lead"> <%= inter.user_id %>  </p>
-      <p class="lead">  <%= inter.book_id %>  </p>
-      <p class="lead">  <%= inter.place_id %>  </p>
+       <p class="lead card-text">Название книги: <%= inter.book_title %>  </p>
+       <p class="lead card-text">Автор книги: <%= inter.book_author %>  </p>
+       <p class="lead card-text">Номер телефона: <%= inter.phone_number%>  </p>
+       <p class="lead card-text"> <%= inter.user_id %>  </p>
+      <p class="lead card-text">  <%= inter.book_id %>  </p>
+      <p class="lead card-text">  <%= inter.place_id %>  </p>
   </div>
+  </div>
+</div>
 <% end %>

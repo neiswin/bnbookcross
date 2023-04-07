@@ -3,7 +3,7 @@ class InteractionsController < ApplicationController
   before_action :fetch_places, only: %i[create edit new]
 
   def index
-    @interactions = Interaction.all
+    @interactions = current_user.interactions
   end
 
   def show
@@ -11,7 +11,14 @@ class InteractionsController < ApplicationController
   end
 
   def create
-    @interaction = Interaction.new interaction_donate_params
+
+    if user_signed_in?
+      @interaction = current_user.interactions.build interaction_donate_params
+    else
+      @interaction = Interaction.new interaction_donate_params
+    end
+
+    debugger
     if @interaction.save
       flash[:success] = 'Спасибо! Ваша заявка отправлена'
       redirect_to root_path

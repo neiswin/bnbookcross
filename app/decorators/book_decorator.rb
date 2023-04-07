@@ -37,14 +37,14 @@ class BookDecorator < ApplicationDecorator
   def place_book_name
     case place_id
     when 1
-      return "Проходная АПК"
+      return "Проходная 1"
     when 2
-      return "Проходная КИПиА"
+      return "Проходная 2"
+    when nil 
+      return "user"
     else
       return "Неизвестно"
-    end
-
-    
+    end   
   end
 
 end

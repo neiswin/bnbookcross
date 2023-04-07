@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   
   before_action :set_book!, only: %i[destroy edit show update]
-  before_action :fetch_places, only: %i[create edit new]
+  before_action :fetch_places, only: %i[create edit new index]
   # before_action :authenticate_user!, except: %i[index show]
   before_action :authorize_book!
   after_action :verify_authorized
@@ -41,7 +41,9 @@ class BooksController < ApplicationController
     @pagy, @books = pagy Book.order(created_at: :desc) 
     @books = @books.decorate
     @q = Book.ransack(params[:q])
-    @books = @q.result(distinct: true).decorate
+    @books = @q.result(distinct: true).order(created_at: :desc) 
+    # debugger
+    @books = @books.decorate
   end
 
   def show
